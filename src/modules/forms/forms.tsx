@@ -21,7 +21,9 @@ interface FormWrapperProps {
 
 const labelToId = (text: string) => text.replace(/([A-Za-z])/g, "$1");
 
-const makeFormPair = (id: string) => ({ [id]: undefined });
+const makeFormPair = (id: string) => ({
+  [id]: id !== "country" ? undefined : "",
+});
 
 const makeFormPairs = (labels: string[]) =>
   labels.map((l) => makeFormPair(labelToId(l)));
